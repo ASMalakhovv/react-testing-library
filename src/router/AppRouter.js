@@ -4,12 +4,14 @@ import {Main} from "../pages/Main";
 import {Users} from "../Users/Users";
 import {UserDetails} from "../pages/UserDetails";
 import {Error} from "../pages/Error";
+import {HelloWorld} from "../pages/HelloWorld";
 
 export const AppRouter = () => {
     return (
         <Routes>
             <Route path="/about" element={<About />}/>
             <Route path="/" element={<Main />}/>
+            <Route path="/hello" element={<HelloWorld />}/>
             <Route path="users" element={<Users />}/>
             <Route path="user/:id" element={<UserDetails />}/>
             <Route path="/*" element={<Error />} />
