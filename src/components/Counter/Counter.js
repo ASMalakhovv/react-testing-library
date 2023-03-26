@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {getCounterValue} from "../../store/reducers/getCounterValue/getCounterValue";
-import {decrement, increment} from "../../store/reducers/counter";
+import {decrement, increment} from "../../store/reducers/counterReducer";
 
 export function Counter(props) {
     const dispatch = useDispatch()
@@ -17,9 +17,9 @@ export function Counter(props) {
 
     return (
         <div>
-            <h1>value = {count}</h1>
-            <button onClick={onIncrement}>increment</button>
-            <button onClick={onDecrement}>decrement</button>
+            <h1 data-testid="counter-value">{count}</h1>
+            <button data-testid="increment-btn" onClick={onIncrement}>increment</button>
+            <button data-testid="decrement-btn" onClick={onDecrement}>decrement</button>
         </div>
     );
 }
