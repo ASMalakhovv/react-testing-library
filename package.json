@@ -21,12 +21,24 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "wdio": "wdio run ./wdio.conf.js",
-    "test:e2e": "npx wdio run ./wdio.conf.js"
+    "test:e2e": "npx wdio run ./wdio.conf.js",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -42,11 +54,40 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/node-logger": "^6.5.16",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
     "@wdio/cli": "^8.6.8",
     "@wdio/local-runner": "^8.6.8",
     "@wdio/mocha-framework": "^8.6.8",
     "@wdio/spec-reporter": "^8.6.8",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "chromedriver": "^111.0.0",
-    "wdio-chromedriver-service": "^8.1.1"
+    "loki": "^0.31.1",
+    "prop-types": "^15.8.1",
+    "wdio-chromedriver-service": "^8.1.1",
+    "webpack": "^5.77.0"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
